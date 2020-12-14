@@ -2,7 +2,8 @@
 # run on the root node to generate static-nodes.json file
 # old ubuntu 14
 #ip_addr=`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`
-ip_addr=`ip -4 addr show eno1 | grep -oP "(?<=inet ).*(?=/)"`
+#ip_addr=`ip -4 addr show eno1 | grep -oP "(?<=inet ).*(?=/)"`
+ip_addr= `hostname -I`
 if [ -z "$ip_addr" ]
  then
   ip_addr=`ip -4 addr show eno2 | grep -oP "(?<=inet ).*(?=/)"`
